@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server1
+spec:
+  replicas: 2  # Number of instances
+  selector:
+    matchLabels:
+      app: server1
+  template:
+    metadata:
+      labels:
+        app: server1
+    spec:
+      containers:
+      - name: server1
+        image: manhdungnguyen/server1:latest  # Update with your image name
+        ports:
+        - containerPort: 8080
+# kubectl scale deployment server1 --replicas=1 để chỉ định rằng chỉ có một pod hoạt động.

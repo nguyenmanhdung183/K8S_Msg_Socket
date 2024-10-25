@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cpp-server
+spec:
+  type: NodePort  # Sử dụng NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30001  # Bạn có thể chỉ định port để dễ dàng kết nối
+  selector:
+    app: server1
+
+    # kubectl apply -f service.yaml
